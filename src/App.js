@@ -5,8 +5,10 @@ import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
-const App = () => {
-  const state = {
+import { combineReducers, createStore } from 'redux';
+
+function reducer(){
+  return {
     additionalPrice: 0,
     car: {
       price: 26395,
@@ -21,8 +23,13 @@ const App = () => {
       { id: 3, name: 'Premium sound system', price: 500 },
       { id: 4, name: 'Rear spoiler', price: 250 }
     ]
-  };
+  }
+}
 
+const store = createStore(reducer);
+
+const App = () => {
+  const state = store;
   return (
     <div className="boxes">
       <div className="box">
